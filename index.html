@@ -1,95 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title> </title>
+<html>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- TODO: refactor to external sheet -->
-        <style>
-            
-             .fa {
-            /* padding: 20px; */
-            font-size: 30px; 
-            /* width: 50px; */
-            text-align: center;
-            text-decoration: none;
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Style the video: 100% width and height to cover the entire window */
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        /* Add some content at the bottom of the video/page */
+        .content {
+            position: fixed;
+            top: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+        }
+
+        /* Style the button used to pause/play the video */
+        #myBtn {
+            width: 200px;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #myBtn:hover {
+            background: #ddd;
+            color: black;
+        }
+    </style>
+
+    <script>
+        // Pause and play the video, and change the button text
+        function myFunction() {
+            if (video == null) {
+                // Get the video
+                var video = document.getElementById("myVideo");
+
+                // Get the button
+                var btn = document.getElementById("myBtn");
             }
-
-            /* Add a hover effect if you want */
-            .fa:hover {
-            opacity: 0.7;
-            } 
-
-            /* Set a specific color for each brand */
-
-            /* Facebook */
-            .fa-facebook {
-            background: #3B5998;
-            color: white;
+            if (video.paused) {
+                video.play();
+                btn.innerHTML = "Pause";
+            } else {
+                video.pause();
+                btn.innerHTML = "Play";
             }
+        }
+    </script>
+</head>
 
-            /* Soundcloud */
-            .fa-soundcloud {
-            background: rgb(255, 136, 0);
-            color: white;
-            }
-
-            /* Youtube */
-            .fa-youtube {
-            background: #cd201f;
-            color: white;
-            }
-        </style>
-    </head>
-<body style="background-color:#ffffff;">
-    <header class=" black-80 tc pv4 avenir" style="background-color:#ee3338;">
-        <img class="db w-80 center" src="kairos-banner.png">
-        <nav class="bt bb tc mw7 center mt4">
-            <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="/">Front-page</a>
-            <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="/">Home</a>
-            <a class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pa3 ph4-l" href="/about">About</a>
-            <a class="f6 f5-l link bg-animate black-80 hover-bg-light-yellow dib pa3 ph4-l" href="/contact">Contact</a>
-            <a href="" class="pa3 fa fa-facebook "></a>
-            <a class="link dim gray dib h2 w2 br-100 mr3 pa2 bg-near-white ba b--black-10" href="https://www.facebook.com/KairosMinistries/" title="">
-                <svg data-icon="facebook" viewBox="0 0 32 32" style="fill:currentcolor">
-                    <title>facebook icon</title>
-                    <path
-                        d="M8 12 L13 12 L13 8 C13 2 17 1 24 2 L24 7 C20 7 19 7 19 10 L19 12 L24 12 L23 18 L19 18 L19 30 L13 30 L13 18 L8 18 z">
-                    </path>
-                </svg>
-            </a>
-            <a href="#" class="pa3 fa fa-soundcloud "></a>
-            <a href="#" class="pa3 fa fa-youtube "></a>
-        </nav>
-    </header>
-    <main class="cf pa2 mw8-l center" style="background-color:759d4a;">
-        <div class="fl w-100 w-50-ns ph2">
-            <a href="" class="pv2 grow db no-underline black "><img class="db w-100 shadow-5" src="nagmaal.jpg"></a>
+<body>
+   
+    <video autoplay muted loop id="myVideo">
+        <source src="resources/20200112_103924.mp4" type="video/mp4">
+    </video>
 
 
+    <div class="content">
+        <div class="relative">
+            <a class=" center" href="introduction.html"><img class="" src="resources/kairos-logo.svg"></a>
+            <p class="f4 lh-copy" style="font-family: 'Nunito', sans-serif;">KAIROS MINISTRIES</p>
+            <p class="f4 lh-copy">Family Church</p>
+
+            <button id="myBtn" onclick="myFunction()">Pause</button>
         </div>
-        <div class="fl w-50 w-25-ns ph2">
-            <a href="" class="pv2 grow db no-underline black"><img class="db w-100 shadow-5" src="kairos.jpg"></a>
-            <a href="" class="pv2 grow db no-underline black"><img class="db w-100 shadow-5" src="shofar.jpg"></a>
-            <a href="#" style="background-image: url(./shofar.jpg);"
-                class=" link grow mw5 dt hide-child br2 cover bg-center">
-                <span class=" white dtc v-mid w-100 h-100 child bg-black-40 pa5">
-                    Card title
-                </span>
-            </a>
+    </div> 
+    
 
-        </div>
-        <div class="fl w-50 w-25-ns ph2">
-            <a href="" class="pv2 grow db no-underline black"><img class="db w-100 shadow-5" src="seengebed.jpg"></a>
-            <a href="" class="no-underline pv2 grow db"><img class="db w-100" src="baptism.jpg"></a>
-            <a href="" class="pv2 grow db no-underline black"><img class="db w-100 shadow-5" src="worship.jpg"></a>
-            <a href="" class="pv2 grow db no-underline black"><img class="db w-100 shadow-5" src="children.jpg"></a>
-
-        </div>
-
-    </main>
 </body>
 
 </html>
